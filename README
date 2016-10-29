@@ -1,0 +1,22 @@
+# LAMP
+
+> Docker容器配置`LAMP`WEB服务器
+
+### 安装如下服务
+* SSH
+* mysql
+* Apache
+
+以下环境变量默认配置
+
+| 环境变量       | 名称			|    默认值		|	
+| ------------- |:-------------:|:-------------:| 
+|DEPENDENT		|	环境依赖		|supervisor git apache2 libapache2-mod-php5 mysql-server php5-mysql pwgen php-apc php5-mcrypt php5-gd wget curl|
+|PHP_UPLOAD_MAX_FILESIZE|PHP最大传|	10M			|
+|PHP_POST_MAX_SIZE|PHP最大POST数据包大小|	10M		|
+|MYSQL_USER		|数据库用户名		|	mrjin		|
+|MYSQL_PASS		|数据库密码		|	jin123		|
+|ROOT_PASS		|SSH用户root密码	|	jin123		|
+
+
+
