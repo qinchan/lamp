@@ -12,6 +12,7 @@ RUN set -x && \
 # 添加镜像配置和脚本
 ADD start-apache2.sh /start-apache2.sh
 ADD start-mysqld.sh /start-mysqld.sh
+ADD start-sshd.sh /start-sshd.sh
 ADD run.sh /run.sh
 RUN chmod 755 /*.sh
 ADD my.cnf /etc/mysql/conf.d/my.cnf
