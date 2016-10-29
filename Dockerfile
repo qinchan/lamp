@@ -35,8 +35,7 @@ RUN a2enmod rewrite
 
 # 配置/html 作为网站的根路径
 RUN mkdir -p /html && rm -rf /var/www/html && ln -s /html /var/www/html
-RUN wget https://raw.githubusercontent.com/jinfeijie/Python/master/tz.php -O /html/index.php
-
+RUN wget https://raw.githubusercontent.com/jinfeijie/Python/master/tz.php -O /html/index.php && chown -R www-data:www-data /html/
 
 # 配置PHP的环境变量
 ENV PHP_UPLOAD_MAX_FILESIZE 10M
