@@ -34,7 +34,7 @@ RUN a2enmod rewrite
 
 ENV WEB_GIT_URL https://github.com/typecho/typecho.git
 # 配置/html 作为网站的根路径
-RUN mkdir -p /html && rm -rf /var/www/html && ln -s /html /var/www/html
+RUN mkdir -p /html && rm -rf /var/www/html && ln -s /html /var/www/html && chown -R www-data:www-data /html/
 RUN git clone $WEB_GIT_URL /html
 
 # 配置PHP的环境变量
