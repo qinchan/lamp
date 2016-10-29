@@ -1,0 +1,8 @@
+lamp:
+  image: mrjin/lamp:latest
+  privileged: false
+  restart: always
+  ports:
+  - '80'
+  - '3306'
+  - '22'
