@@ -16,6 +16,10 @@ echo "=> 使用${_word}密码创建MySQL管理用户"
 
 mysql -uroot -e "CREATE USER '$MYSQL_USER'@'%' IDENTIFIED BY '$PASS'"
 mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_USER'@'%' WITH GRANT OPTION"
+mysql -uroot << EOF 2>/dev/null
+CREATE DATABASE $MYSQL_USER
+EOF
+[ $? -eq 0 ] && echo "created DB" || echo DB already exists
 
 
 echo "=> 完成!"
@@ -24,6 +28,8 @@ echo "========================================================================"
 echo "				您现在可以使用连接到此MySQL服务器:"
 echo ""
 echo "    			mysql -u$MYSQL_USER -p$PASS -h<host> -P<port>"
+echo ""
+echo "				数据库名：$MYSQL_USER"
 echo ""
 echo "				请记住尽快更改上述密码!"
 echo "				MySQL用户'root'没有密码，只允许本地连接"
